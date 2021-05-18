@@ -93,6 +93,8 @@ class Network(object):
         self.w6-=self.lr*dloss1dw6
         self.w7-=self.lr*dloss2dw7
         self.w8-=self.lr*dloss2dw8
+        self.b2-=self.lr*(dloss1a3*da3do1 + dloss2a4*da4do2)
+        self.b1-=self.lr*(dloss1a3*da3do1*(do1da1*da1dh1 + do1da2*da2dh2) + dloss2a4*da4do2*(do2da1*da1dh1+do2da2*da2dh2))
 
     def sgd(self):
 
